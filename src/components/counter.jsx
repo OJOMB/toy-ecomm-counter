@@ -55,6 +55,7 @@ export default class Counter extends Component {
                 >
                     DEL
                 </button>
+                <span class="border border-light">{this.totalCost()}</span>
             </div>
         );
     };
@@ -66,13 +67,17 @@ export default class Counter extends Component {
     formatValue() {
         return this.props.counter.value === 0 ? "Zero" : this.props.counter.value;
     };
+    totalCost() {
+        var cost = (this.props.counter.unitPrice * this.props.counter.value) / 100;
+        return "$" + cost;
+    };
     handleSwitchValueInputMode = () => {
         this.setState(
             {
                 originalValue: this.state.valueInputMode ? null : this.props.counter.value,
                 valueInputMode: !this.state.valueInputMode,
             }
-        )
+        );
     }
     handleValueChange = (e) => {
         this.props.onSetCounterValue(this.props.counter.id, e.target.value);
@@ -81,8 +86,8 @@ export default class Counter extends Component {
         if (e.key === 'Enter' || e.keyCode === 13) {
             this.handleSwitchValueInputMode()
         } else if (e.key === 'Escape' || e.keyCode === 27) {
-            this.props.onSetCounterValue(this.props.counter.id, this.state.originalValue)
-            this.handleSwitchValueInputMode()
+            this.props.onSetCounterValue(this.props.counter.id, this.state.originalValue);
+            this.handleSwitchValueInputMode();
         }
     }
 }

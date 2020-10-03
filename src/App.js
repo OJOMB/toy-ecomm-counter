@@ -6,11 +6,11 @@ import Counters from './components/counters'
 export default class App extends React.Component {
     state = {
         counters: [
-            { id: 1, item: "Door Key", value: 0 },
-            { id: 2, item: "Trebuchet", value: 0 },
-            { id: 3, item: "Potato Peeler", value: 0 },
-            { id: 4, item: "Tinned Fish", value: 4 },
-            { id: 5, item: "Cloth", value: 3}
+            { id: 1, item: "Door Key", unitPrice: 250, value: 0 },
+            { id: 2, item: "Trebuchet", unitPrice: 4000, value: 0 },
+            { id: 3, item: "Potato Peeler", unitPrice: 1000, value: 0 },
+            { id: 4, item: "Tinned Fish", unitPrice: 400, value: 4 },
+            { id: 5, item: "Cloth", unitPrice: 50, value: 3}
         ]
     };
     render() {

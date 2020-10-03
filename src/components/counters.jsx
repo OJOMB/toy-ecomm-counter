@@ -23,8 +23,19 @@ export default class Counters extends React.Component {
                         )
                     ) 
                 }
+                <span class="border border-light">Total Cost: {this.totalCost()}</span>
+                <br />
+                <br />
                 <button className="btn btn-primary" onClick={ this.props.onReset }>Reset Basket</button>
             </div>
         );
     };
+    totalCost() {
+        var cost = this.props.counters.reduce(
+            (accumulator, counter) => accumulator + counter.unitPrice * counter.value,
+            0
+        );
+        cost /= 100
+        return "$" + cost;
+    }
 }
